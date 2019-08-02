@@ -13,7 +13,7 @@ exports.createPages = ({ graphql, actions }) => {
             graphql(
                 `
                     query {
-                        posts: allBlogPosts {
+                        posts: allBlogPosts(filter: { slug: { ne: null } }) {
                             nodes {
                                 blog
                                 color
