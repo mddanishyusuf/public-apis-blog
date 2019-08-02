@@ -1,0 +1,43 @@
+.banner-container {
+    padding: 20px 0px 40px 0px;
+    width: 80%;
+    margin: 0px auto;
+    text-align: center;
+    @media only screen and (max-width: 600px) {
+        width: 90%;
+
+    }
+    .banner {
+        .tag-line {
+            h2 {
+                font-size: 3.5rem;
+                font-weight: 600;
+                color: #203461;
+            }
+        }
+    }
+
+    .action-buttons {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0px;
+        .action-btn {
+            margin: 10px;
+            border-radius: 4px;
+            padding: 4px 25px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1.5px solid #1A73E8;
+        }
+        .primary-btn {
+            background-color: #1A73E8;
+            color: #fff;
+        }
+
+        .outline-btn {
+            color: #1A73E8;
+        }
+
+    }
+}

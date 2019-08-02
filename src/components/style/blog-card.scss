@@ -1,0 +1,66 @@
+.post-card {
+    padding: 0px 10px 60px 0px;
+    .card-head {
+        height: 60px;
+        .blob-image {
+            position: absolute;
+        }
+        .published-date {
+            padding: 15px;
+        }
+    }
+    .card-content {
+        .title {
+            h2 {
+                font-size: 1.4rem;
+                font-weight: 500;
+                color: #203461;
+            }
+        }
+        .description {
+            font-size: 0.9rem;
+            padding-right: 10px;
+            color: #7b7b7b;
+            margin-bottom: 10px;
+        }
+        .read-more-btn {
+            font-size: 14px;
+            font-weight: 400;
+            cursor: pointer;
+            border: 1.2px solid rgb(26, 115, 232);
+            border-radius: 4px;
+            padding: 3px 15px;
+            display: inline-block;
+            -webkit-transition: color 2s;
+            transition: color 2s;
+            -webkit-transition: .5s ease-in-out;
+            -moz-transition: .5s ease-in-out;
+            -o-transition: .5s ease-in-out;
+            transition: .5s ease-in-out;
+            -webkit-background-clip: padding-box; 
+            -moz-background-clip:    padding; 
+            background-clip:         padding-box;
+            &:hover {
+                -webkit-transition: .5s ease-in-out;
+                -moz-transition: .5s ease-in-out;
+                -o-transition: .5s ease-in-out;
+                transition: .5s ease-in-out;
+                text-decoration: none;
+                border: 1px solid rgb(26, 115, 232);
+                background-color: #869cf1;
+                color: #fff;
+                // border-top-left-radius: 10% ;
+                // border-bottom-right-radius: 20%;
+                -webkit-background-clip: padding-box; 
+                -moz-background-clip:    padding; 
+                background-clip:         padding-box;
+            }
+            span {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 5px;
+            }
+        }
+    }
+}   

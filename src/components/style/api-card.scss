@@ -1,0 +1,37 @@
+.api-card {
+    display: grid;
+    grid-template-columns: 90% 10%;
+    padding: 30px 0px;
+    .api-info{
+        padding-right: 20px;
+        .title {
+            font-family: 'Poppins', sans-serif;
+        }
+        .description {
+            padding: 10px 0px;
+        }
+        .api-meta {
+            color: #7b7b7b;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            font-style: normal;
+            -webkit-letter-spacing: -0.003em;
+            -moz-letter-spacing: -0.003em;
+            -ms-letter-spacing: -0.003em;
+            letter-spacing: -0.003em;
+            line-height: 1.9rem;
+            li {
+                display: inline-block;
+                padding-right: 10px;
+            }
+        }
+    }
+    .link-logo {
+        img {
+            width: 100%;
+        }
+    }
+}
