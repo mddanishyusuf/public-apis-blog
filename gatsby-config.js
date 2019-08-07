@@ -42,6 +42,21 @@ module.exports = {
             },
         },
         {
+            resolve: 'gatsby-source-apiserver',
+            options: {
+                typePrefix: 'resources__',
+                url: `https://public-apis-server.glitch.me/resources/list`,
+                method: 'get',
+                auth: false,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                data: {},
+                name: `posts`,
+                entityLevel: `docs`,
+            },
+        },
+        {
             resolve: `gatsby-source-github-issue`,
             options: {
                 owner: 'mddanishyusuf',
