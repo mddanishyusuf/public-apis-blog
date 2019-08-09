@@ -13,7 +13,7 @@ function createMarkup(content) {
     return { __html: content };
 }
 
-function BlogPostPage({ data, pageContext }) {
+function ArticlePostPage({ data, pageContext }) {
     const postObj = data.blogPost.nodes[0];
     return (
         <Layout isHomepage={pageContext.pageNumber}>
@@ -64,10 +64,7 @@ function BlogPostPage({ data, pageContext }) {
             <div className="content">
                 <Row>
                     <Col md={8}>
-                        <div className="description" dangerouslySetInnerHTML={createMarkup(postObj.description)} />
-                        {postObj.links.map((link, index) => (
-                            <APICard key={index} data={link} />
-                        ))}
+                        <div className="description" dangerouslySetInnerHTML={createMarkup(postObj.body)} />
                     </Col>
                 </Row>
             </div>
@@ -75,36 +72,19 @@ function BlogPostPage({ data, pageContext }) {
     );
 }
 
-export default BlogPostPage;
+export default ArticlePostPage;
 
 export const pageQuery = graphql`
-    query BlogPostQuery($post_id: String) {
-        blogPost: allBlogPosts(filter: { slug: { eq: $post_id } }) {
+    query ArticlePostQuery($post_id: Int) {
+        blogPost: allGithubIssue(filter: { number: { eq: $post_id } }) {
             nodes {
-                blog
-                color
-                date
-                slug
-                description
-                title
-                _id
                 id
-                links {
-                    title
-                    _id
-                    link
-                    color
-                    description
-                    category
-                    published_at
-                    auth
-                    cat_id
-                    slug
-                    cors
-                    date
-                    featured
-                    featured_date
-                }
+                number
+                body
+                html_url
+                title
+                updated_at
+                url
             }
         }
     }

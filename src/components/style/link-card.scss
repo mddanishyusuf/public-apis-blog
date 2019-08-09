@@ -1,0 +1,50 @@
+.link-card {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+
+    .card-inner {
+
+        h2 {
+            padding: 0;
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #203461;
+
+            a {
+                text-decoration: none;
+                color: #203461;
+            }
+        }
+
+        .link-meta {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            font-size: 0.9rem;
+            color: #7b7b7b;
+            margin-bottom: 10px;
+
+            li {
+                padding-right: 10px;
+            }
+
+            .tag-list {
+                span {
+                    padding-right: 5px;
+                }
+            }
+
+            .read-more {
+                padding: 5px 0px;
+
+                a {
+                    color: #1a73e8;
+                }
+            }
+        }
+    }
+}

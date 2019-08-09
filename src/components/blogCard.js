@@ -28,7 +28,7 @@ function PostCard({ data }) {
                     </Link>
                 </div>
                 <div className="description">
-                    {data.description.length > 150 ? `${data.description.substr(0, 150)}...` : data.description}
+                    {data.description.length > 100 ? `${data.description.substr(0, 100)}...` : data.description}
                 </div>
                 <Link to={`/${data.slug}`} className="read-more-btn">
                     <span>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Code, Book, Link, Copy } from 'react-feather';
+import { Code, Book, Link, Copy, Search } from 'react-feather';
 
 export const getHostname = function(url) {
     if (url !== null) {
@@ -61,16 +61,18 @@ export function getReadingTime(text) {
     return timeObj.text;
 }
 
-export function getIcon(name) {
+export function getIcon(name, size) {
     let iCon;
     if (name === 'APIs') {
-        iCon = <Code size="14" />;
+        iCon = <Code size={size} />;
     } else if (name === 'Tutorials') {
-        iCon = <Book size="14" />;
+        iCon = <Book size={size} />;
     } else if (name === 'Resources') {
-        iCon = <Link size="14" />;
+        iCon = <Link size={size} />;
     } else if (name === 'Alternative') {
-        iCon = <Copy size="14" />;
+        iCon = <Copy size={size} />;
+    } else if (name === 'findAPI') {
+        iCon = <Search size={size} />;
     }
     return iCon;
 }

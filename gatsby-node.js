@@ -7,6 +7,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     const postTemplate = require.resolve('./src/templates/postTemplate.js');
     const postsTemplate = require.resolve('./src/templates/postsTemplate.js');
+    const articleTemplate = require.resolve('./src/templates/articleTemplate.js');
 
     return new Promise((resolve, reject) => {
         resolve(
@@ -20,6 +21,7 @@ exports.createPages = ({ graphql, actions }) => {
                                 date
                                 slug
                                 title
+                                description
                             }
                         }
                     }
@@ -65,13 +67,24 @@ exports.createPages = ({ graphql, actions }) => {
 
                 results.data.posts.nodes.forEach(x => {
                     // loop over split pages
-                    createPage({
-                        path: `/${x.slug}`,
-                        component: postTemplate,
-                        context: {
-                            post_id: x.slug,
-                        },
-                    });
+                    if (x.blog === 'Yes') {
+                        const postId = x.description.split('/issues/')[1];
+                        createPage({
+                            path: `/${x.slug}`,
+                            component: articleTemplate,
+                            context: {
+                                post_id: parseInt(postId),
+                            },
+                        });
+                    } else {
+                        createPage({
+                            path: `/${x.slug}`,
+                            component: postTemplate,
+                            context: {
+                                post_id: x.slug,
+                            },
+                        });
+                    }
                 });
             })
         );

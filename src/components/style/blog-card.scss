@@ -1,28 +1,40 @@
 .post-card {
     padding: 0px 10px 60px 0px;
+
     .card-head {
         height: 60px;
+
         .blob-image {
             position: absolute;
         }
+
         .published-date {
             padding: 15px;
         }
     }
+
     .card-content {
         .title {
-            h2 {
-                font-size: 1.4rem;
-                font-weight: 500;
-                color: #203461;
+
+            a {
+                text-decoration: none;
+
+                h2 {
+                    font-size: 1.3rem;
+                    font-weight: 500;
+                    color: #203461;
+                    line-height: 1.7rem;
+                }
             }
         }
+
         .description {
             font-size: 0.9rem;
             padding-right: 10px;
             color: #7b7b7b;
             margin-bottom: 10px;
         }
+
         .read-more-btn {
             font-size: 14px;
             font-weight: 400;
@@ -37,9 +49,10 @@
             -moz-transition: .5s ease-in-out;
             -o-transition: .5s ease-in-out;
             transition: .5s ease-in-out;
-            -webkit-background-clip: padding-box; 
-            -moz-background-clip:    padding; 
-            background-clip:         padding-box;
+            -webkit-background-clip: padding-box;
+            -moz-background-clip: padding;
+            background-clip: padding-box;
+
             &:hover {
                 -webkit-transition: .5s ease-in-out;
                 -moz-transition: .5s ease-in-out;
@@ -51,10 +64,11 @@
                 color: #fff;
                 // border-top-left-radius: 10% ;
                 // border-bottom-right-radius: 20%;
-                -webkit-background-clip: padding-box; 
-                -moz-background-clip:    padding; 
-                background-clip:         padding-box;
+                -webkit-background-clip: padding-box;
+                -moz-background-clip: padding;
+                background-clip: padding-box;
             }
+
             span {
                 display: flex;
                 align-items: center;
@@ -63,4 +77,4 @@
             }
         }
     }
-}   
+}
