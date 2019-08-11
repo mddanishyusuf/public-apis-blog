@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { Row, Col } from 'react-bootstrap';
 import { User, Tag, Calendar, Share2 } from 'react-feather';
+import Markdown from 'markdown-to-jsx';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -64,7 +65,9 @@ function ArticlePostPage({ data, pageContext }) {
             <div className="content">
                 <Row>
                     <Col md={8}>
-                        <div className="description" dangerouslySetInnerHTML={createMarkup(postObj.body)} />
+                        <div className="description">
+                            <Markdown>{postObj.body}</Markdown>
+                        </div>
                     </Col>
                 </Row>
             </div>

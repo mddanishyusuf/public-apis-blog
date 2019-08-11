@@ -31,10 +31,8 @@ const Header = ({ siteMetaData, isHomepage, username }) => (
                             {getIcon('Resources', 12)} <span>Resources</span>
                         </Link>
                     </Nav.Link>
-                    <Nav.Link>
-                        <a href="https://public-apis.xyz">
-                            {getIcon('findAPI', 12)} <span>Find APIs</span>
-                        </a>
+                    <Nav.Link href="https://public-apis.xyz">
+                        {getIcon('findAPI', 12)} <span>Find APIs</span>
                     </Nav.Link>
                 </Nav>
             </Navbar.Collapse>

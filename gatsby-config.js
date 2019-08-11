@@ -78,5 +78,11 @@ module.exports = {
                 ],
             },
         },
+        {
+            resolve: 'gatsby-plugin-simple-analytics',
+            options: {
+              domain: 'sa.blog.public-apis.xyz',
+            },
+        },
     ],
 };

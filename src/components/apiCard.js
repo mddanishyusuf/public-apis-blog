@@ -1,5 +1,6 @@
 import React from 'react';
 import { ExternalLink, Key, Lock } from 'react-feather';
+import Img from 'react-image';
 
 import { getHostname } from '../config/Functions';
 import './style/api-card.scss';
@@ -21,14 +22,18 @@ function APICard({ data }) {
                     </li>
                     <li>
                         <ExternalLink size={15} /> visit:{' '}
-                        <a href={data.link} taregt="_blank" rel="noopener norefferer">
+                        <a href={data.link} target="_blank" rel="noopener noreferrer">
                             link
                         </a>
                     </li>
                 </ul>
             </div>
             <div className="link-logo">
-                <img src={`https://logo.clearbit.com/${getHostname(data.link)}`} />
+                <Img
+                    className="card-image"
+                    alt={data.title}
+                    src={`https://logo.clearbit.com/${getHostname(data.link)}`}
+                />
             </div>
         </div>
     );

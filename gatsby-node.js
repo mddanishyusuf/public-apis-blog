@@ -22,6 +22,7 @@ exports.createPages = ({ graphql, actions }) => {
                                 slug
                                 title
                                 description
+                                issueLink
                             }
                         }
                     }
@@ -68,7 +69,7 @@ exports.createPages = ({ graphql, actions }) => {
                 results.data.posts.nodes.forEach(x => {
                     // loop over split pages
                     if (x.blog === 'Yes') {
-                        const postId = x.description.split('/issues/')[1];
+                        const postId = x.issueLink.split('/issues/')[1];
                         createPage({
                             path: `/${x.slug}`,
                             component: articleTemplate,

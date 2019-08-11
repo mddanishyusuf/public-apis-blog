@@ -28,14 +28,6 @@ function BlogPostPage({ data, pageContext }) {
                                 <span>Mohd Danish</span>
                             </span>
                         </div>
-                        <div className="tags-list">
-                            <span>
-                                <Tag size={14} />
-                                <span>
-                                    <Link to="/">APIs</Link>, <Link to="/">Tutorials</Link>
-                                </span>
-                            </span>
-                        </div>
                         <div className="published-date">
                             <span>
                                 <Calendar size={14} />
@@ -47,13 +39,15 @@ function BlogPostPage({ data, pageContext }) {
                                 <Share2 size={14} />
                                 <ul>
                                     <li>
-                                        <a href="">tweet,</a>
-                                    </li>
-                                    <li>
-                                        <a href="">email,</a>
-                                    </li>
-                                    <li>
-                                        <a href="">copy link</a>
+                                        <a
+                                            href={`https://twitter.com/intent/tweet/?text=${encodeURI(
+                                                postObj.title
+                                            )}&url=https://blog.public-apis.xyz/${postObj.slug}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            tweet
+                                        </a>
                                     </li>
                                 </ul>
                             </span>
