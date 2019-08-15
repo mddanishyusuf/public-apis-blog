@@ -7,16 +7,16 @@ module.exports = {
         githubURL: `https://github.com/mddanishyusuf`, // your github url for photo - required
         social: [
             {
-                name: `APIs`,
-                tag: `apis`,
+                name: `Resources`,
+                tag: `resources`,
             },
             {
                 name: `Tutorials`,
                 tag: `tutorials`,
             },
             {
-                name: `Resources`,
-                tag: `resources`,
+                name: `APIs`,
+                tag: `apis`,
             },
             {
                 name: `Alternative`,
@@ -81,8 +81,16 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-simple-analytics',
             options: {
-              domain: 'sa.blog.public-apis.xyz',
+                domain: 'sa.blog.public-apis.xyz',
             },
         },
+        {
+            resolve: 'gatsby-plugin-mailchimp',
+            options: {
+                endpoint:
+                    'https://iamnewbie.us10.list-manage.com/subscribe/post?u=d6aa14d1db1acb93b8125a0e1&id=a494ca665f', // add your MC list endpoint here; see instructions below
+            },
+        },
+        `gatsby-plugin-sitemap`,
     ],
 };

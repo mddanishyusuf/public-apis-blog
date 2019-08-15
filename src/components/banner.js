@@ -11,8 +11,12 @@ const Banner = () => (
             </div>
             <div className="under-tag-line">Fuel up your apps and business with powerful 1000+ public apis.</div>
             <div className="action-buttons">
-                <div className="action-btn primary-btn">Find API</div>
-                <div className="action-btn outline-btn">Learn API</div>
+                <a href="https://public-apis.xyz">
+                    <div className="action-btn primary-btn">Find API</div>
+                </a>
+                <Link to="/resources">
+                    <div className="action-btn outline-btn">Learn API</div>
+                </Link>
             </div>
         </div>
     </div>

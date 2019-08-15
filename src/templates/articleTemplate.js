@@ -29,18 +29,10 @@ function ArticlePostPage({ data, pageContext }) {
                                 <span>Mohd Danish</span>
                             </span>
                         </div>
-                        <div className="tags-list">
-                            <span>
-                                <Tag size={14} />
-                                <span>
-                                    <Link to="/">APIs</Link>, <Link to="/">Tutorials</Link>
-                                </span>
-                            </span>
-                        </div>
                         <div className="published-date">
                             <span>
                                 <Calendar size={14} />
-                                <span>{postObj.date}</span>
+                                <span>{postObj.created_at.split('T')[0]}</span>
                             </span>
                         </div>
                         <div className="share">
@@ -48,13 +40,15 @@ function ArticlePostPage({ data, pageContext }) {
                                 <Share2 size={14} />
                                 <ul>
                                     <li>
-                                        <a href="">tweet,</a>
-                                    </li>
-                                    <li>
-                                        <a href="">email,</a>
-                                    </li>
-                                    <li>
-                                        <a href="">copy link</a>
+                                        <a
+                                            href={`https://twitter.com/intent/tweet/?text=${encodeURI(
+                                                postObj.title
+                                            )}&url=https://blog.public-apis.xyz/${postObj.slug}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            tweet
+                                        </a>
                                     </li>
                                 </ul>
                             </span>
@@ -70,6 +64,13 @@ function ArticlePostPage({ data, pageContext }) {
                         </div>
                     </Col>
                 </Row>
+                <div className="end-of-article">
+                    <h3>Thanks for reading!!!</h3>
+                    <p>
+                        I hope you like this article. <br />
+                        So, your suggestions and feedback will make this website more powerful.
+                    </p>
+                </div>
             </div>
         </Layout>
     );
@@ -88,6 +89,7 @@ export const pageQuery = graphql`
                 title
                 updated_at
                 url
+                created_at
             }
         }
     }

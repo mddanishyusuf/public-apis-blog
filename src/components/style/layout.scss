@@ -45,3 +45,19 @@ body {
 
     }
 }
+
+.end-of-article {
+    padding: 10px 20px;
+    border-left: 5px solid #c5532d;
+    margin: 20px 0px;
+    h3 {
+        font-style: italic;
+        font-size: 18px;
+        color: #c5532d;
+        font-weight: 700;
+    }
+    p{
+        margin: 0;
+        font-style: italic;
+    }
+}

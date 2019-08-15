@@ -64,6 +64,13 @@ function BlogPostPage({ data, pageContext }) {
                         ))}
                     </Col>
                 </Row>
+                <div className="end-of-article">
+                    <h3>Thanks for reading!!!</h3>
+                    <p>
+                        I hope you like this article. <br />
+                        So, your suggestions and feedback will make this website more powerful.
+                    </p>
+                </div>
             </div>
         </Layout>
     );

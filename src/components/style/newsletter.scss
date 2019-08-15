@@ -1,0 +1,12 @@
+.newsletter-form {
+    input {
+        font-size: 14px;
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+    button {
+        font-size: 12px;
+    }
+}

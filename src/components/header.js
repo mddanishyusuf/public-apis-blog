@@ -26,42 +26,14 @@ const Header = ({ siteMetaData, isHomepage, username }) => (
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto"></Nav>
                 <Nav>
-                    <Nav.Link>
-                        <Link to="/resources">
-                            {getIcon('Resources', 12)} <span>Resources</span>
+                    {siteMetaData.social.map((item, key) => (
+                        <Link to={`/${item.tag}`} key={key}>
+                            {getIcon(item.name, 14)} <span>{item.name}</span>
                         </Link>
-                    </Nav.Link>
-                    <Nav.Link href="https://public-apis.xyz">
-                        {getIcon('findAPI', 12)} <span>Find APIs</span>
-                    </Nav.Link>
+                    ))}
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
-
-        {/* <header>
-            <div className="navbar">
-                <Link to="/">
-                    <h2>
-                        <span className="talks-about">
-                            <img src={logo} alt="public apis logo" width="20" />
-                            Talks About{' '}
-                        </span>
-                        <span className="apis">APIs</span>
-                    </h2>
-                </Link>
-                <div className="social">
-                    <ul>
-                        {siteMetaData.social.map((item, key) => (
-                            <li key={key}>
-                                <Link to={`/${item.tag}`}>
-                                    {getIcon(item.name, 12)} <span>{item.name}</span>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
-        </header> */}
     </header>
 );
 

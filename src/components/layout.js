@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
+import Footer from './footer';
 import 'bootstrap/dist/css/bootstrap.css';
 import './style/layout.scss';
 
@@ -45,6 +46,7 @@ const Layout = ({ children, isHomepage }) => {
             >
                 <main>{children}</main>
             </div>
+            <Footer />
         </>
     );
 };
