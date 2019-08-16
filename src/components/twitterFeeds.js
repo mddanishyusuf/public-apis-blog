@@ -17,7 +17,7 @@ function TwitterFeeds() {
 
     useEffect(() => {
         axios.get(`https://twiter-apis-feeds.glitch.me/search?tag=%23api&limit=8`).then(res => {
-            setTwitFeedList(res.data);
+            setTwitFeedList(res.data.statuses);
         });
     }, []);
     return (

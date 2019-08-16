@@ -21,12 +21,25 @@ const breakpointColumnsObj = {
 
 function TwitterFeeds() {
     const [twitFeedList, setTwitFeedList] = useState([]);
+    const [maxId, setMaxId] = useState('');
 
     useEffect(() => {
         axios.get(`https://twiter-apis-feeds.glitch.me/search?tag=%23api`).then(res => {
-            setTwitFeedList(res.data);
+            setTwitFeedList(res.data.statuses);
+            const searchMeta = res.data.search_metadata.next_results.split('=');
+            setMaxId(searchMeta[1].split('&')[0]);
         });
     }, []);
+
+    const loadMoreTweet = e => {
+        e.preventDefault();
+        axios.get(`https://twiter-apis-feeds.glitch.me/search?tag=%23api&next_id=${maxId}`).then(res => {
+            setTwitFeedList([...twitFeedList, ...res.data.statuses]);
+            const searchMeta = res.data.search_metadata.next_results.split('=');
+            setMaxId(searchMeta[1].split('&')[0]);
+        });
+    };
+
     return (
         <Layout>
             <SEO title="Good Resources to learn API" />
@@ -48,6 +61,11 @@ function TwitterFeeds() {
                         </div>
                     ))}
                 </Masonry>
+            </div>
+            <div className="load-more-tweets">
+                <div className="action-btn primary-btn" onClick={loadMoreTweet}>
+                    Feed Me More
+                </div>
             </div>
         </Layout>
     );

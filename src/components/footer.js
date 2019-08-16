@@ -49,7 +49,7 @@ function Footer() {
                                 <Link to="/resources">Alternative APIs</Link>
                             </li>
                             <li>
-                                <Link to="/resources">Sitemap</Link>
+                                <a href="/sitemap.xml">Sitemap</a>
                             </li>
                         </ul>
                         <br />

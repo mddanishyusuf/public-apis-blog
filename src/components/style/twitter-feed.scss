@@ -11,3 +11,28 @@
     border: 1px solid #dadce0 !important;
     border-radius: 8px !important;
 }
+
+.load-more-tweets {
+    text-align: center;
+}
+
+.action-btn {
+    margin: 10px;
+    border-radius: 4px;
+    padding: 4px 25px;
+    font-size: 18px;
+    font-weight: 500;
+    display: inline-block;
+    cursor: pointer;
+    border: 1.5px solid #1A73E8;
+
+    @media only screen and (max-width: 600px) {
+        padding: 4px 10px;
+        font-size: 16px;
+    }
+}
+
+.primary-btn {
+    background-color: #1A73E8;
+    color: #fff;
+}
