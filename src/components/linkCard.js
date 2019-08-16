@@ -1,4 +1,5 @@
 import React from 'react';
+import { getHostname } from '../config/Functions';
 
 import './style/link-card.scss';
 
@@ -21,7 +22,7 @@ function LinkCard({ data, showReadMore, fontSize, showTags }) {
                     )}
                     {showReadMore && (
                         <li className="read-more">
-                            <a href={data.url}>Read @ {data.domain_name}</a>
+                            <a href={data.url}>Read @ {getHostname(data.domain_name)}</a>
                         </li>
                     )}
                 </ul>

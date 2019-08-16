@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Code, Book, Link, Copy, Search } from 'react-feather';
+import { Code, Book, Link, Copy, Search, Rss } from 'react-feather';
 
-export const getHostname = function(url) {
-    if (url !== null) {
-        const match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
+export const getHostname = function(urlLink) {
+    if (urlLink !== null) {
+        const match = urlLink.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
         if (match !== null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
             return match[2];
         }
@@ -73,6 +73,8 @@ export function getIcon(name, size) {
         iCon = <Copy size={size} />;
     } else if (name === 'findAPI') {
         iCon = <Search size={size} />;
+    } else if (name === 'Twitter Feeds') {
+        iCon = <Rss size={size} />;
     }
     return iCon;
 }

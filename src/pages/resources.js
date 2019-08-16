@@ -23,9 +23,9 @@ function ResourcesPage({ data, pageContext }) {
         <Layout isHomepage={pageContext.pageNumber}>
             <SEO title="Good Resources to learn API" />
             <div className="page-heading">
-                <h2>API Resources</h2>
+                <h2>Curated Links</h2>
                 <div className="tag-line">
-                    Curated List of articles and tutorials about APIs written by expert developers
+                    Awesome List of articles and tutorials about APIs written by expert developers
                 </div>
                 <div className="action-buttons">
                     <div className="action-btn outline-btn">Suggest Good Links</div>
@@ -37,7 +37,7 @@ function ResourcesPage({ data, pageContext }) {
                 columnClassName="my-masonry-grid_column"
             >
                 {postsList.map((item, index) => (
-                    <LinkCard key={index} data={item} showReadMore showTags fontSize={1.3} />
+                    <LinkCard key={index} data={item} showReadMore showTags={false} fontSize={1} />
                 ))}
             </Masonry>
         </Layout>

@@ -6,9 +6,9 @@ import { Send, AlertCircle, CheckCircle } from 'react-feather';
 import './style/newsletter.scss';
 
 function NewsletterForm() {
-    const [email, setEmail] = useState(null);
+    const [email, setEmail] = useState('');
     const [newsletterWarningMsg, setNewsletterWarningMsg] = useState('');
-    const [sendButtonMsg, setSendButtonMsg] = useState('Subscribe');
+    const [sendButtonMsg, setSendButtonMsg] = useState('Yes!!! Let me in');
     const [newsletterSuccessMsg, setNewsletterSuccessMsg] = useState('');
 
     const _handleSubmit = async e => {
@@ -46,14 +46,18 @@ function NewsletterForm() {
         <div className="newsletter-form">
             <Form onSubmit={_handleSubmit}>
                 <InputGroup className="mb-3">
-                    <FormControl placeholder="Get weekly updates about APIs" />
+                    <FormControl
+                        value={email}
+                        onChange={emailHandle}
+                        placeholder="You need awesome API news via email?"
+                    />
                     <InputGroup.Append>
                         <Button variant="primary" type="submit">
                             {sendButtonMsg}
                         </Button>
                     </InputGroup.Append>
-                    <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
                 </InputGroup>
+                <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
                 <div className="warning-msg">
                     {newsletterWarningMsg !== '' && <AlertCircle size={13} />} {newsletterWarningMsg}
                 </div>

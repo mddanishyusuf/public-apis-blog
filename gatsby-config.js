@@ -1,10 +1,12 @@
 module.exports = {
     siteMetadata: {
-        title: `Talks about API`, // website name - required
+        title: `Talks about API`,
         description: `Hey 👋, I'm Mohd Danish Yusuf and I'm 26y old Front-end Engineer, I build s public-apis.xyz, dailyhack.xyz, apiwithgithub.com, dynamic-template.xyz, react-index.com & Open Source Developer, Tech Writer, Foodie 🍳`, // cover letter - required
-        author: `@mddanishyusuf`, // author name
+        author: `@mddanishyusuf`,
+        image: '/images/featured-image.png',
         siteUrl: `https://blog.public-apis.xyz`,
-        githubURL: `https://github.com/mddanishyusuf`, // your github url for photo - required
+        twitterUsername: '@public_apis',
+        githubURL: `https://github.com/mddanishyusuf`,
         social: [
             {
                 name: `Resources`,
@@ -21,6 +23,10 @@ module.exports = {
             {
                 name: `Alternative`,
                 tag: `alternative-apis`,
+            },
+            {
+                name: `Twitter Feeds`,
+                tag: `twitter-feeds`,
             },
         ],
     },

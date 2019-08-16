@@ -9,6 +9,9 @@ import PostCard from '../components/blogCard';
 import Pagination from '../components/pagination';
 import Banner from '../components/banner';
 import LinkCard from '../components/linkCard';
+import TwitterFeeds from '../components/twitterFeeds';
+
+import './style/posts-style.scss';
 
 function BlogPage({ data, pageContext }) {
     console.log(data);
@@ -18,25 +21,62 @@ function BlogPage({ data, pageContext }) {
         <Layout isHomepage={pageContext.pageNumber}>
             <Banner />
             <SEO title="Public APIs Blog" />
+            <div className="section-head">
+                <div className="heading-content">
+                    <h2 style={{ fontSize: 24, fontWeight: 600, padding: '0px', margin: 0 }}>
+                        <Link to="resources" style={{ color: '#203461' }}>
+                            Tutorials & Collection
+                        </Link>
+                    </h2>
+                    <div className="">Learn about how to build APIs and APIs collections</div>
+                </div>
+                <div className="see-all">
+                    <Link to="/resources">See all →</Link>
+                </div>
+            </div>
             <Row>
-                <Col md={9}>
+                <Col md={12}>
                     <Row>
                         {postsList.map((item, index) => (
-                            <Col md={4} key={index}>
+                            <Col md={3} key={index}>
                                 <PostCard data={item} />
                             </Col>
                         ))}
                     </Row>
                 </Col>
-                <Col md={3}>
-                    <h2 style={{ fontSize: 20, fontWeight: 600, padding: '7px 0px' }}>
-                        <Link to="resources" style={{ color: '#203461' }}>
-                            {getIcon('Resources', 20)} Resources
-                        </Link>
-                    </h2>
-                    {resourceList.map((item, index) => (
-                        <LinkCard data={item} key={index} showReadMore={false} fontSize={1} showTags={false} />
-                    ))}
+                <Col md={12}>
+                    <div className="section-head">
+                        <div className="heading-content">
+                            <h2 style={{ fontSize: 24, fontWeight: 600, padding: '0px', margin: 0 }}>
+                                <Link to="resources" style={{ color: '#203461' }}>
+                                    Twitter Feeds
+                                </Link>
+                            </h2>
+                            <div className="">Real time latest twitter feeds about #API</div>
+                        </div>
+                        <Link to="/twitter-feeds">See all →</Link>
+                    </div>
+                    <TwitterFeeds />
+                    <div className="section-head">
+                        <div className="heading-content">
+                            <h2 style={{ fontSize: 24, fontWeight: 600, padding: '0px', margin: 0 }}>
+                                <Link to="resources" style={{ color: '#203461' }}>
+                                    Awesome Links
+                                </Link>
+                            </h2>
+                            <div className="">Curated list of articles, tutorials about APIs</div>
+                        </div>
+                        <div className="see-all">
+                            <Link to="/resources">See all →</Link>
+                        </div>
+                    </div>
+                    <Row>
+                        {resourceList.map((item, index) => (
+                            <Col md={3} key={index}>
+                                <LinkCard data={item} key={index} showReadMore fontSize={1} showTags={false} />
+                            </Col>
+                        ))}
+                    </Row>
                 </Col>
             </Row>
         </Layout>
@@ -46,10 +86,10 @@ function BlogPage({ data, pageContext }) {
 export default BlogPage;
 
 export const pageQuery = graphql`
-    query BlogQuery($skip: Int, $limit: Int) {
+    query BlogQuery($skip: Int) {
         blogPosts: allBlogPosts(
             skip: $skip
-            limit: $limit
+            limit: 8
             filter: { slug: { ne: null } }
             sort: { fields: published_at, order: DESC }
         ) {
@@ -63,7 +103,7 @@ export const pageQuery = graphql`
                 description
             }
         }
-        resourcesPosts: allResourcesPosts(limit: 5, sort: { fields: added_date, order: DESC }) {
+        resourcesPosts: allResourcesPosts(limit: 8, sort: { fields: added_date, order: DESC }) {
             nodes {
                 id
                 added_date

@@ -6,11 +6,11 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, keywords }) {
     const { site } = useStaticQuery(
         graphql`
             query {
@@ -19,6 +19,9 @@ function SEO({ description, lang, meta, title }) {
                         title
                         description
                         author
+                        image
+                        twitterUsername
+                        siteUrl
                     }
                 }
             }
@@ -26,6 +29,7 @@ function SEO({ description, lang, meta, title }) {
     );
 
     const metaDescription = description || site.siteMetadata.description;
+    const { image } = site.siteMetadata;
 
     return (
         <Helmet
@@ -36,8 +40,16 @@ function SEO({ description, lang, meta, title }) {
             titleTemplate={`%s | ${site.siteMetadata.title}`}
             meta={[
                 {
+                    name: `title`,
+                    content: title,
+                },
+                {
                     name: `description`,
                     content: metaDescription,
+                },
+                {
+                    property: `keywords`,
+                    content: keywords,
                 },
                 {
                     property: `og:title`,
@@ -46,6 +58,10 @@ function SEO({ description, lang, meta, title }) {
                 {
                     property: `og:description`,
                     content: metaDescription,
+                },
+                {
+                    property: `og:image`,
+                    content: image,
                 },
                 {
                     property: `og:type`,
@@ -64,12 +80,12 @@ function SEO({ description, lang, meta, title }) {
                     content: title,
                 },
                 {
-                    name: `google-site-verification`,
-                    content: 'BelhHa4s846EQikZvexZCOcuElyKc3OMjWvwTHBkVPI',
-                },
-                {
                     name: `twitter:description`,
                     content: metaDescription,
+                },
+                {
+                    property: `twitter:image`,
+                    content: image,
                 },
             ].concat(meta)}
         />
@@ -80,13 +96,19 @@ SEO.defaultProps = {
     lang: `en`,
     meta: [],
     description: ``,
+    twitterUsername: ``,
+    siteUrl: `https://blog.public-apis.xyz`,
+    keywords: `public, apis, blog, learn, what, api, build, python, nodejs, mongodb, resources, list, movie, free, open, APIs, github, collective, list, IoT, github, knowledge`,
 };
 
 SEO.propTypes = {
     description: PropTypes.string,
     lang: PropTypes.string,
+    keywords: PropTypes.string,
     meta: PropTypes.arrayOf(PropTypes.object),
     title: PropTypes.string.isRequired,
+    twitterUsername: PropTypes.string,
+    siteUrl: PropTypes.string,
 };
 
 export default SEO;

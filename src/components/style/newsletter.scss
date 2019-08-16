@@ -1,12 +1,26 @@
 .newsletter-form {
     input {
         font-size: 14px;
+
         &:focus {
             outline: none;
             box-shadow: none;
         }
     }
+
     button {
         font-size: 12px;
+    }
+
+    .warning-msg {
+        font-size: 13px;
+        margin-top: 10px;
+        color: red;
+    }
+
+    .warning-success {
+        font-size: 13px;
+        margin-top: 10px;
+        color: green;
     }
 }

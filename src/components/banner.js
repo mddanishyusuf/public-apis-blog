@@ -9,7 +9,9 @@ const Banner = () => (
             <div className="tag-line h2-bold">
                 <h2>Find. Learn. Build.</h2>
             </div>
-            <div className="under-tag-line">Fuel up your apps and business with powerful 1000+ public apis.</div>
+            <div className="under-tag-line">
+                Learn & Fuel up your tools, apps and business with powerful 1000+ public apis.
+            </div>
             <div className="action-buttons">
                 <a href="https://public-apis.xyz">
                     <div className="action-btn primary-btn">Find API</div>
