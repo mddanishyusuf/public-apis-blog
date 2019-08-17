@@ -65,7 +65,7 @@ export function getIcon(name, size) {
     let iCon;
     if (name === 'APIs') {
         iCon = <Code size={size} />;
-    } else if (name === 'Tutorials') {
+    } else if (name === 'Articles') {
         iCon = <Book size={size} />;
     } else if (name === 'Resources') {
         iCon = <Link size={size} />;

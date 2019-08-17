@@ -14,12 +14,10 @@ import TwitterFeeds from '../components/twitterFeeds';
 import './style/posts-style.scss';
 
 function BlogPage({ data, pageContext }) {
-    console.log(data);
     const postsList = data.blogPosts.nodes;
     const resourceList = data.resourcesPosts.nodes;
     return (
         <Layout isHomepage={pageContext.pageNumber}>
-            <Banner />
             <SEO title="Public APIs Blog" />
             <div className="section-head">
                 <div className="heading-content">
@@ -29,9 +27,6 @@ function BlogPage({ data, pageContext }) {
                         </Link>
                     </h2>
                     <div className="">Learn about how to build APIs and APIs collections</div>
-                </div>
-                <div className="see-all">
-                    <Link to="/resources">See all →</Link>
                 </div>
             </div>
             <Row>
@@ -44,40 +39,6 @@ function BlogPage({ data, pageContext }) {
                         ))}
                     </Row>
                 </Col>
-                <Col md={12}>
-                    <div className="section-head">
-                        <div className="heading-content">
-                            <h2 style={{ fontSize: 24, fontWeight: 600, padding: '0px', margin: 0 }}>
-                                <Link to="resources" style={{ color: '#203461' }}>
-                                    Twitter Feeds
-                                </Link>
-                            </h2>
-                            <div className="">Real time latest twitter feeds about #API</div>
-                        </div>
-                        <Link to="/twitter-feeds">See all →</Link>
-                    </div>
-                    <TwitterFeeds />
-                    <div className="section-head">
-                        <div className="heading-content">
-                            <h2 style={{ fontSize: 24, fontWeight: 600, padding: '0px', margin: 0 }}>
-                                <Link to="resources" style={{ color: '#203461' }}>
-                                    Awesome Links
-                                </Link>
-                            </h2>
-                            <div className="">Curated list of articles, tutorials about APIs</div>
-                        </div>
-                        <div className="see-all">
-                            <Link to="/resources">See all →</Link>
-                        </div>
-                    </div>
-                    <Row>
-                        {resourceList.map((item, index) => (
-                            <Col md={3} key={index}>
-                                <LinkCard data={item} key={index} showReadMore fontSize={1} showTags={false} />
-                            </Col>
-                        ))}
-                    </Row>
-                </Col>
             </Row>
         </Layout>
     );
@@ -86,10 +47,10 @@ function BlogPage({ data, pageContext }) {
 export default BlogPage;
 
 export const pageQuery = graphql`
-    query BlogQuery($skip: Int) {
+    query BlogQuery($skip: Int, $limit: Int) {
         blogPosts: allBlogPosts(
             skip: $skip
-            limit: 8
+            limit: $limit
             filter: { slug: { ne: null } }
             sort: { fields: published_at, order: DESC }
         ) {

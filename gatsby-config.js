@@ -9,25 +9,25 @@ module.exports = {
         githubURL: `https://github.com/mddanishyusuf`,
         social: [
             {
-                name: `Resources`,
-                tag: `resources`,
-            },
-            {
-                name: `Tutorials`,
-                tag: `tutorials`,
-            },
-            {
-                name: `APIs`,
-                tag: `apis`,
-            },
-            {
-                name: `Alternative`,
-                tag: `alternative-apis`,
+                name: `Articles`,
+                tag: `articles`,
             },
             {
                 name: `Twitter Feeds`,
                 tag: `twitter-feeds`,
             },
+            {
+                name: `Resources`,
+                tag: `resources`,
+            },
+            // {
+            //     name: `APIs`,
+            //     tag: `apis`,
+            // },
+            // {
+            //     name: `Alternative`,
+            //     tag: `alternative-apis`,
+            // },
         ],
     },
     plugins: [

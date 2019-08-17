@@ -1,12 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Row, Col } from 'react-bootstrap';
 import Masonry from 'react-masonry-css';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import LinkCard from '../components/linkCard';
-import Pagination from '../components/pagination';
 
 import '../components/style/resources.scss';
 
@@ -28,7 +26,9 @@ function ResourcesPage({ data, pageContext }) {
                     Awesome List of articles and tutorials about APIs written by expert developers
                 </div>
                 <div className="action-buttons">
-                    <div className="action-btn outline-btn">Suggest Good Links</div>
+                    <a href="https://airtable.com/shr00JTiWLs11CzX7" target="_blank" rel="noopener noreferrer">
+                        <div className="action-btn outline-btn">Suggest Good Links</div>
+                    </a>
                 </div>
             </div>
             <Masonry

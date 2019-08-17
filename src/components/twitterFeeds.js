@@ -14,14 +14,17 @@ const breakpointColumnsObj = {
 
 function TwitterFeeds() {
     const [twitFeedList, setTwitFeedList] = useState([]);
+    const [tweetsLoading, setTweetsLoading] = useState(true);
 
     useEffect(() => {
         axios.get(`https://twiter-apis-feeds.glitch.me/search?tag=%23api&limit=8`).then(res => {
             setTwitFeedList(res.data.statuses);
+            setTweetsLoading(false);
         });
     }, []);
     return (
         <div className="twitter-feeds">
+            {tweetsLoading ? <h3>Loading...</h3> : ''}
             <Masonry
                 breakpointCols={breakpointColumnsObj}
                 className="my-masonry-grid"

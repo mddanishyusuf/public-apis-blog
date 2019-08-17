@@ -1,7 +1,7 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import { Row, Col } from 'react-bootstrap';
-import { User, Tag, Calendar, Share2 } from 'react-feather';
+import { User, Calendar, Share2 } from 'react-feather';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -67,8 +67,12 @@ function BlogPostPage({ data, pageContext }) {
                 <div className="end-of-article">
                     <h3>Thanks for reading!!!</h3>
                     <p>
-                        I hope you like this article. <br />
+                        I hope you like this article. written by{' '}
+                        <a href="https://twitter.com/mddanishyusuf">Mohd Danish</a>
+                        <br />
                         So, your suggestions and feedback will make this website more powerful.
+                        <br />
+                        <a href="mailto:hello@mohddanish.me">hello@mohddanish.me</a>
                     </p>
                 </div>
             </div>

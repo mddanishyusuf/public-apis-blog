@@ -1,12 +1,12 @@
 const _ = require('lodash');
 
-const POST_PER_PAGE = 16;
+const POST_PER_PAGE = 40;
 
 exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions;
 
     const postTemplate = require.resolve('./src/templates/postTemplate.js');
-    const postsTemplate = require.resolve('./src/templates/postsTemplate.js');
+    const articlesTemplate = require.resolve('./src/templates/articlesTemplate.js');
     const articleTemplate = require.resolve('./src/templates/articleTemplate.js');
 
     return new Promise((resolve, reject) => {
@@ -38,8 +38,8 @@ exports.createPages = ({ graphql, actions }) => {
                 chunks.forEach((chunk, index) => {
                     if (index === 0) {
                         createPage({
-                            path: `/`,
-                            component: postsTemplate,
+                            path: `/articles`,
+                            component: articlesTemplate,
                             context: {
                                 first: POST_PER_PAGE / 2,
                                 skip: POST_PER_PAGE * index,
@@ -52,8 +52,8 @@ exports.createPages = ({ graphql, actions }) => {
                         });
                     }
                     createPage({
-                        path: `/page/${index + 1}`,
-                        component: postsTemplate,
+                        path: `/articles/page/${index + 1}`,
+                        component: articlesTemplate,
                         context: {
                             first: POST_PER_PAGE / 2,
                             skip: POST_PER_PAGE * index,

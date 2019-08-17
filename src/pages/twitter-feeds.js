@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { graphql } from 'gatsby';
-import { Row, Col } from 'react-bootstrap';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 import Masonry from 'react-masonry-css';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import LinkCard from '../components/linkCard';
-import Pagination from '../components/pagination';
 
 import '../components/style/twitter-feed.scss';
 
@@ -22,21 +18,29 @@ const breakpointColumnsObj = {
 function TwitterFeeds() {
     const [twitFeedList, setTwitFeedList] = useState([]);
     const [maxId, setMaxId] = useState('');
+    const [tweetsLoading, setTweetsLoading] = useState(true);
+    const [loadingMsg, setLoadingMsg] = useState('Loading Feeds!!!');
 
     useEffect(() => {
         axios.get(`https://twiter-apis-feeds.glitch.me/search?tag=%23api`).then(res => {
             setTwitFeedList(res.data.statuses);
             const searchMeta = res.data.search_metadata.next_results.split('=');
             setMaxId(searchMeta[1].split('&')[0]);
+            setTweetsLoading(false);
+            setLoadingMsg('Feed Me More');
         });
     }, []);
 
     const loadMoreTweet = e => {
         e.preventDefault();
+        setTweetsLoading(true);
+        setLoadingMsg('Loading Feeds!!!');
         axios.get(`https://twiter-apis-feeds.glitch.me/search?tag=%23api&next_id=${maxId}`).then(res => {
             setTwitFeedList([...twitFeedList, ...res.data.statuses]);
             const searchMeta = res.data.search_metadata.next_results.split('=');
             setMaxId(searchMeta[1].split('&')[0]);
+            setTweetsLoading(false);
+            setLoadingMsg('Feed Me More');
         });
     };
 
@@ -63,8 +67,8 @@ function TwitterFeeds() {
                 </Masonry>
             </div>
             <div className="load-more-tweets">
-                <div className="action-btn primary-btn" onClick={loadMoreTweet}>
-                    Feed Me More
+                <div className="action-btn primary-btn" onClick={!tweetsLoading ? loadMoreTweet : undefined}>
+                    {loadingMsg}
                 </div>
             </div>
         </Layout>

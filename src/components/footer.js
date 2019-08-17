@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { Mail } from 'react-feather';
 
 import NewsletterForm from './newsletter';
 import './style/footer.scss';
@@ -40,22 +41,22 @@ function Footer() {
                                 <Link to="/resources">Resources</Link>
                             </li>
                             <li>
-                                <Link to="/resources">Tutorial</Link>
+                                <Link to="/articles">Articles</Link>
                             </li>
                             <li>
-                                <Link to="/resources">APIs</Link>
-                            </li>
-                            <li>
-                                <Link to="/resources">Alternative APIs</Link>
+                                <Link to="/twitter-feeds">Twitter Feeds</Link>
                             </li>
                             <li>
                                 <a href="/sitemap.xml">Sitemap</a>
                             </li>
                         </ul>
                         <br />
+                        <br />
                         <ul>
                             <li>
-                                <a href="mailto:hello@mohddanish.me">hello[at]mohddanish.me</a>
+                                <a href="mailto:hello@mohddanish.me">
+                                    <Mail size={13} /> hello[at]mohddanish.me
+                                </a>
                             </li>
                         </ul>
                     </div>
