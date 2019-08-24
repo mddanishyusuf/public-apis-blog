@@ -75,6 +75,7 @@ exports.createPages = ({ graphql, actions }) => {
                             component: articleTemplate,
                             context: {
                                 post_id: parseInt(postId),
+                                description: x.description,
                             },
                         });
                     } else {

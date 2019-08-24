@@ -19,7 +19,10 @@ function ResourcesPage({ data, pageContext }) {
     const postsList = data.resourcesPosts.nodes;
     return (
         <Layout isHomepage={pageContext.pageNumber}>
-            <SEO title="Good Resources to learn API" />
+            <SEO
+                title="Curated collection of articles about APIs"
+                description="A curated collection of blog posts and articles written by experts. Learn with their experience that how they are building APIs for their Applications"
+            />
             <div className="page-heading">
                 <h2>Curated Links</h2>
                 <div className="tag-line">

@@ -17,7 +17,7 @@ function BlogPostPage({ data, pageContext }) {
     const postObj = data.blogPost.nodes[0];
     return (
         <Layout isHomepage={pageContext.pageNumber}>
-            <SEO title="Public APIs Blog" />
+            <SEO title={postObj.title} description={postObj.description} />
             <div className="reader-content">
                 <div className="reader-header">
                     <h2 className="title">{postObj.title}</h2>

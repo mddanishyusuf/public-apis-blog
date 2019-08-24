@@ -3,6 +3,8 @@ import { graphql, Link } from 'gatsby';
 import { Row, Col } from 'react-bootstrap';
 import { User, Tag, Calendar, Share2 } from 'react-feather';
 import Markdown from 'markdown-to-jsx';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { solarizedDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -14,11 +16,15 @@ function createMarkup(content) {
     return { __html: content };
 }
 
+const CodeBlock = ({ children }) => (
+    <SyntaxHighlighter style={solarizedDark}>{children.props.children}</SyntaxHighlighter>
+);
+
 function ArticlePostPage({ data, pageContext }) {
     const postObj = data.blogPost.nodes[0];
     return (
         <Layout isHomepage={pageContext.pageNumber}>
-            <SEO title="Public APIs Blog" />
+            <SEO title={postObj.title} description={postObj.body.split('\n')[0]} />
             <div className="reader-content">
                 <div className="reader-header">
                     <h2 className="title">{postObj.title}</h2>
@@ -60,7 +66,17 @@ function ArticlePostPage({ data, pageContext }) {
                 <Row>
                     <Col md={8}>
                         <div className="description">
-                            <Markdown>{postObj.body}</Markdown>
+                            <Markdown
+                                options={{
+                                    overrides: {
+                                        pre: {
+                                            component: CodeBlock,
+                                        },
+                                    },
+                                }}
+                            >
+                                {postObj.body}
+                            </Markdown>
                         </div>
                     </Col>
                 </Row>

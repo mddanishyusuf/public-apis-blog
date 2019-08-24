@@ -1,7 +1,7 @@
 module.exports = {
     siteMetadata: {
-        title: `Talks about API`,
-        description: `Hey 👋, I'm Mohd Danish Yusuf and I'm 26y old Front-end Engineer, I build s public-apis.xyz, dailyhack.xyz, apiwithgithub.com, dynamic-template.xyz, react-index.com & Open Source Developer, Tech Writer, Foodie 🍳`, // cover letter - required
+        title: `Talks about Public API`,
+        description: `Top free APIs, alternative APIs & Public APIs collections. Learn how to build REST APIs and deploy on free hosting.`, // cover letter - required
         author: `@mddanishyusuf`,
         image: '/images/featured-image.png',
         siteUrl: `https://blog.public-apis.xyz`,

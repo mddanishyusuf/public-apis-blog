@@ -18,7 +18,10 @@ function BlogPage({ data, pageContext }) {
     const resourceList = data.resourcesPosts.nodes;
     return (
         <Layout isHomepage={pageContext.pageNumber}>
-            <SEO title="Public APIs Blog" />
+            <SEO
+                title="Awesome and Top free APIs Collection of 2019"
+                description="Collections of Top free, public and open APIs. Learn how to build REST APIs with Nodejs, Python and host them on AWS, DigitalOcean and on Glitch"
+            />
             <div className="section-head">
                 <div className="heading-content">
                     <h2 style={{ fontSize: 24, fontWeight: 600, padding: '0px', margin: 0 }}>
