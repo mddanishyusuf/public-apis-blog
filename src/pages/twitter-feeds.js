@@ -46,7 +46,10 @@ function TwitterFeeds() {
 
     return (
         <Layout>
-            <SEO title="Good Resources to learn API" />
+            <SEO
+                title="Twitter Feeds about #api on real time"
+                description="Real time streaming tweet direct from twitter about the #api"
+            />
             <div className="page-heading">
                 <h2>Twitter Feeds</h2>
                 <div className="tag-line">
