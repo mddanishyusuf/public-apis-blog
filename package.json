@@ -8,7 +8,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
-    "gatsby": "^2.13.44",
+    "gatsby": "^2.32.13",
     "gatsby-plugin-mailchimp": "^5.1.2",
     "gatsby-plugin-manifest": "^2.2.5",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
